@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        background-image: url(https://imgnn.seoul.co.kr/img/upload/2021/07/02/SSI_20210702152322_V.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+      }
+      div {
+        color: white;
+        font-size: large;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      span {
+        color: red;
+      }
+
+      .button {
+        background-color: transparent;
+        border: 1px white solid;
+        color: white;
+        padding: 10px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer; /* 올리면 커서모양 바뀜 */
+      }
+      /* 커서올리면 바뀔 모습 지정 */
+      .button:hover {
+        background-color: white;
+        color: black;
+      }
+      img {
+        width: 15px;
+        filter: invert();
+        position: relative;
+        top: 3px;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      안녕하세요. 제 이름은
+      <span>허덕형입니다.</span><br />
+      저는 프론트엔드 개발자입니다.<br />
+    </div>
+    <button class="button" href="#">
+      View my work <img src="화살표.png" />
+    </button>
+  </body>
+</html>

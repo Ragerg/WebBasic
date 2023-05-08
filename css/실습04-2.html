@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 1189px;
+        margin: 20px auto;
+        font-size: large;
+      }
+      header {
+        height: 50px;
+        background-color: rgb(73, 162, 189);
+        color: white;
+        padding: 10px;
+      }
+      h2 {
+        position: absolute;
+        top: 15px;
+        float: left;
+      }
+      nav {
+        float: right;
+      }
+      li {
+        float: left;
+        display: inline;
+        height: 50px;
+        line-height: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      #a1 {
+        height: 450px;
+        background-image: url(cute.png);
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+        line-height: 450px;
+        font-size: xx-large;
+      }
+      #a2 {
+        background-color: palevioletred;
+        color: white;
+        height: 150px;
+        text-align: center;
+        font-size: 0.5rem;
+      }
+      #div1,
+      #div2,
+      #div3 {
+        display: inline-block;
+        width: 200px;
+        border: 1px white solid;
+        border-radius: 10px;
+        margin-left: 80px;
+        margin-right: 80px;
+        padding: 10px;
+        margin-top: 50px;
+        cursor: pointer;
+      }
+      #div1:hover,
+      #div2:hover,
+      #div3:hover {
+        background-color: white;
+        color: palevioletred;
+        border: 2px palevioletred dashed;
+        outline: 2px white solid;
+      }
+      footer {
+        line-height: 50px;
+        text-align: center;
+        border-bottom: 1px black solid;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>생존코딩</h2>
+      <nav>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>JQuery</li>
+        <li>Vue.js</li>
+        <li>Node.js</li>
+      </nav>
+    </header>
+    <section>
+      <article id="a1">저의 목표는 여러분이 웹과 친해지는 것입니다.</article>
+      <article id="a2">
+        <div id="div1">
+          누구라도 보기 <br />
+          쉬운 설명
+        </div>
+        <div id="div2">
+          무료 강좌 <br />
+          사이트
+        </div>
+        <div id="div3">
+          생존코딩 <br />
+          유튜브 채널
+        </div>
+      </article>
+    </section>
+    <footer>개발은 :: 생존코딩 :: survivalcoding</footer>
+  </body>
+</html>
