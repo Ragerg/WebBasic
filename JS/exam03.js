@@ -8,8 +8,7 @@ function checkInput(text) {
     alert("텍스트값을 입력해 주세요");
   } else {
     document.getElementById("text").innerHTML = text;
-    document.getElementById("button").innerHTML =
-      "<input type=button value=빨강 onclick=changeColor('red')> <input type=button value=파랑 onclick=changeColor('blue')> <input type=button value=초록 onclick=changeColor('green')>";
+    document.getElementById("button").style.display = "block";
   }
 }
 
