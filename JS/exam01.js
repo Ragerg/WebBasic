@@ -1,5 +1,5 @@
 function inname() {
-   let name = prompt('이름을 입력해 주세요');
+   const name = prompt('이름을 입력해 주세요');
    check(name);
 }
 
