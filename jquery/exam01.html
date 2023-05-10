@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <script src="exam01.js"></script>
+
+    <style>
+      .buttons {
+        padding: 25%;
+        text-align: center;
+      }
+
+      .buttonBox {
+        display: none;
+      }
+
+      #text {
+        font-size: xx-large;
+        font-weight: bolder;
+        margin: 10px;
+      }
+
+      button {
+        display: none;
+        width: 100px;
+        height: 40px;
+        line-height: 38px;
+        background-color: burlywood;
+        border: 2px dashed antiquewhite;
+        outline: 3px solid burlywood;
+        border-radius: 20px;
+        color: antiquewhite;
+        font-size: large;
+        margin: 10px;
+      }
+
+      button:hover {
+        background-color: antiquewhite;
+        border: 2px dashed burlywood;
+        outline: 3px solid antiquewhite;
+        color: burlywood;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <div id="text"></div>
+      <button>RED</button>
+      <button>BLUE</button>
+      <button>GREEN</button>
+    </div>
+  </body>
 </html>
