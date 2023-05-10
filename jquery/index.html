@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" conten t="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // onload = <body onload="alert('hello')">
+      // 이름 없는 함수(익명 함수, anonymous function)
+      $(function () {
+        //alert("Hello");
+
+        //   let box = document.getElementById('box');
+        $("#box")
+          .click(function () {
+            console.log("click!!");
+
+            // $(this).html("<h1>꾸겨넣기</h1>");
+            // $(this).text("<h1>꾸겨넣기</h1>");
+            $(this).append("<h1>꾸겨넣기</h1>");
+            $(this).addClass("small-text");
+          })
+          .mouseover(function () {
+            console.log("mouseover");
+            $(this).css("background-color", "#0000ff");
+            $(this).attr("class", "border");
+          })
+          //$(this)는 람다식 표기가 불가하기 때문에 this 대신 event.target을 쓰거나 람다식 표기 대신 function()을 쓰면된다
+          .mouseleave(function () {
+            console.log("mouseleave");
+            $(this).css("background-color", "#00ff00");
+            $(this).attr("class", "");
+          });
+      });
+
+      // 화살표 표기법 arrow function
+      // 람다식 lambda expression
+      // $(() => {
+      //     alert('Hello')
+      // });
+    </script>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+
+      .border {
+        border: 2px solid black;
+      }
+
+      .small-text {
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+
+    <div id="box"></div>
+  </body>
+</html>
