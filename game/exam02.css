@@ -1,0 +1,78 @@
+   body {
+    background-color: black;
+   }
+   
+   #container {
+      position: absolute;
+      width: 800px;
+      height: 500px;
+      border: 2px rgba(255, 255, 255, 0.904) solid;
+      background-image: url("images/bg.jpg");
+      background-size: contain;
+      padding: 40px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden ;
+      
+    }
+
+    @keyframes slide {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-500px, 0);
+      }
+    }
+
+    #hero {
+      position: absolute;
+      left: 100px;
+      bottom: 50px;
+      filter: brightness(120%);
+      border: 1px solid white;
+    } 
+    
+    #enemy {
+      position: absolute;
+      right: 0px;
+      width: 70px;
+      bottom: 50px;
+      filter: brightness(120%);
+      border: 1px solid white;
+    }
+
+    #score {
+      float: right;
+      color: white;
+    }
+
+    #gameover_screen {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    
+    #gameover_screen h1 {
+      color: white;
+      text-shadow: -1px -5px 0 #7ac73390, 5px -5px 0 #c7339b90, -1px 5px 0 #c4d01d1b, 1px 1px 0 #0000001b;
+      font-size: 60px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    #gameover_screen button {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      padding: 10px 20px;
+      text-shadow: -1px -2px 0 #7ac73390, 2px -2px 0 #c7339b90, -1px 2px 0 #c4d01d1b, 1px 1px 0 #0000001b;
+      background-color: #c7339b00;
+      border: 2px solid #7833c772;
+      box-shadow: -1px -5px 0 #7ac73390, 5px -5px 0 #c7339b90, -1px 5px 0 #c4d01d1b, 1px 1px 0 #0000001b;
+    }
