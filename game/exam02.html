@@ -28,14 +28,17 @@
 
         function beeStart() {
           //적이 오른쪽에서 왼쪽으로 이동
-          bee.animate({ right: "330px" }, 1500, 'linear'); 
+          bee
+            .animate({ right: "630px" }, 1500, "linear")
+            .animate({ right: "-50px" }, 0);
+            beeStart();
         }
 
         function jump() {
           isJumping = true;
           pompom
-            .animate({ bottom: "+=50px" })
-            .animate({ bottom: "-=50px" }, function () {
+            .animate({ bottom: "+=100px" })
+            .animate({ bottom: "-=100px" }, function () {
               isJumping = false;
             });
         }
@@ -59,8 +62,8 @@
     <style>
       #container {
         position: relative;
-        width: 300px;
-        height: 151px;
+        width: 600px;
+        height: 251px;
         border: 1px black solid;
       }
 
@@ -68,8 +71,8 @@
         position: absolute;
         left: 20px;
         bottom: -1px;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         border: 1px black solid;
         transform: scaleX(-1);
       }
@@ -77,7 +80,7 @@
       #bee {
         position: absolute;
         right: 0px;
-        bottom: 10px;
+        bottom: 30px;
         width: 20px;
       }
     </style>
