@@ -14,6 +14,7 @@
     <script>
       $(function () {
         const pompom = $("#pompom");
+        const bee = $("#bee");
 
         //점프 중인지?
         let isJumping = false;
@@ -22,6 +23,12 @@
 
         function gameStart() {
           setKeyboardEvent();
+          beeStart();
+        }
+
+        function beeStart() {
+          //적이 오른쪽에서 왼쪽으로 이동
+          bee.animate({ right: "330px" }, 1500, 'linear'); 
         }
 
         function jump() {
@@ -64,12 +71,21 @@
         width: 50px;
         height: 50px;
         border: 1px black solid;
+        transform: scaleX(-1);
+      }
+
+      #bee {
+        position: absolute;
+        right: 0px;
+        bottom: 10px;
+        width: 20px;
       }
     </style>
   </head>
   <body>
     <div id="container">
       <img id="pompom" src="images/pompom.png" alt="" />
+      <img id="bee" src="images/bee.png" alt="" />
     </div>
   </body>
 </html>
