@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="exam02.css" />
+    <script src="exam02.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="exam02.css">
-  <script src="exam02.js"></script>
+  <body>
+    <div id="container">
+      <div class="sliding-background"></div>
+      <img id="hero" src="images/hero.gif" alt="hero" />
 
-</head>
+      <img id="enemy" src="images/enemy.gif" alt="enemy" />
 
-<body>
-  <div id="container">
-    <div class="sliding-background"></div>
-    <img id="hero" src="images/hero.gif" alt="hero">
+      <img id="pang" src="images/pang.gif" alt="pang" />
 
-    <img id="enemy" src="images/enemy.gif" alt="enemy">
+      <div id="score">Score : 0</div>
 
-    <div id="score">0</div>
-
-    <div id="gameover_screen">
-      <h1>GAME OVER</h1>
-      <button id="restart_button" onclick="window.location.reload()">다시 시작</button>
-      <!-- <button id="restart_button" onclick="restartGame()">다시 시작</button> -->
+      <div id="gameover_screen">
+        <h1>GAME OVER</h1>
+        <h3 id="finalScore">SCORE : 0</h3>
+        <button id="restart_button" onclick="window.location.reload()">
+          다시 시작
+        </button>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
     </div>
-  </div>
-
-</body>
-
+  </body>
 </html>

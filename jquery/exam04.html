@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $(".submit").click(function () {
+          var re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+          if (!re.test($("#id").val())) {
+            alert("아이디는 이메일형식으로 입력해 주세요");
+        } else {
+              alert("회원가입이 완료되었습니다");
+            // $("#id").removeClass("error");
+          }
+        });
+      });
+    </script>
+    <style>
+      form > label {
+        display: block;
+        margin: 20px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>
+        <span>아이디</span>
+        <input type="text" id="id" />
+      </label>
+
+      <label>
+        <span>비밀번호</span>
+        <input type="password" id="pass" minlength="5" />
+      </label>
+
+      <label>
+        <span>성별</span>
+        <label><input type="radio" />남자</label>
+        <label><input type="radio" />여자</label>
+      </label>
+
+      <label>
+        <span>직업</span>
+        <select>
+          <option selected hidden>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </option>
+          <option value="학생">학생</option>
+          <option value="직장인">직장인</option>
+          <option value="공무원">공무원</option>
+        </select>
+      </label>
+
+      <label>
+        <span>취미</span>
+        <label> <input type="checkbox" />낚시 </label>
+        <label> <input type="checkbox" />개발 </label>
+        <label> <input type="checkbox" />게임 </label>
+        <label> <input type="checkbox" />운동 </label>
+        <label> <input type="checkbox" />독서 </label>
+        <label> <input type="checkbox" />음악감상 </label>
+      </label>
+      <input type="hidden" name="min_hobby" value="3" />
+
+      <label>
+        <input class="submit" type="submit" value="회원가입" />
+        <input type="reset" value="취소" />
+      </label>
+    </form>
+  </body>
+</html>
