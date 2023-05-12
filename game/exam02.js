@@ -1,9 +1,3 @@
-const ENEMY_SPEED_MIN_EASY = 1000;
-const ENEMY_SPEED_MAX_EASY = 3000;
-
-const ENEMY_SPEED_MIN_HARD = 500;
-const ENEMY_SPEED_MAX_HARD = 1000;
-
 $(function () {
   const hero = $("#hero");
   const enemy = $("#enemy");
@@ -26,13 +20,33 @@ $(function () {
   let score = 0;
   let isLaunching = false;
 
-  gameStart();
+  $("#easystart_button").click(function () {
+    gameStart("easy");
+  });
 
-  function gameStart() {
-    // $('#gameover_screen').hide();
+  $("#hardstart_button").click(function () {
+    gameStart("hard");
+  });
 
+  square();
+  function gameStart(difficulty) {
+    let min = 0,
+      max = 0;
+    switch (difficulty) {
+      case "easy":
+        min = 1000;
+        max = 3000;
+        break;
+      case "hard":
+        min = 500;
+        max = 2000;
+        break;
+    }
+
+    $("#gamestart_screen").hide();
+    $(".square").hide();
     setKeyboardEvent();
-    enemyStart();
+    enemyStart(min, max);
 
     checkGameOver();
     backgroundSlide();
@@ -56,6 +70,9 @@ $(function () {
       if (isColliding(hero[0], enemy[0])) {
         hero.stop();
         enemy.stop();
+        pang.stop();
+        isJumping = true;
+        isLaunching = true;
 
         if (!$("#gameover_screen").is(":visible")) {
           square();
@@ -70,36 +87,40 @@ $(function () {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  //게임 오버 시 랜덤하게 박스들 생성
   function square() {
     // let colors = ["#ff0000", "#0000ff", "#00ff00"];
     // let colors = ["#c7339b90", "#7ac73390", "#c4d01d1b", "#1d29d01b"];
     let colors = ["#7ac733d8", "#c7339be1", "#c4d01dc5", "#1d29d0da"];
 
-    $(".square").each(function () {
-      let top = getRandomNumber(-100, 300) + "px";
-      let left = getRandomNumber(-300, 500) + "px";
-      let color = colors[Math.floor(Math.random() * colors.length)];
+    setInterval(function () {
+      $(".square").each(function () {
+        let top = getRandomNumber(-200, 400) + "px";
+        let left = getRandomNumber(-300, 900) + "px";
+        let color = colors[Math.floor(Math.random() * colors.length)];
 
-      $(this).css("top", top);
-      $(this).css("left", left);
-      $(this).css("background-color", color);
-    });
+        $(this).css("top", top);
+        $(this).css("left", left);
+        $(this).css("background-color", color);
+      });
+    }, 800);
   }
 
-  function enemyStart() {
+  function enemyStart(min, max) {
     // 속도 조절
-    const speed = getRandomNumber(1000, 3000);
+    const speed = getRandomNumber(min, max);
 
     // 적이 오른쪽에서 왼쪽으로 이동
-    enemy.animate({ right: "850px" }, speed, "linear", function () {
-      // 점수 올리자
-      score += 100;
-      updateScore(score);
-
-      // 적 리셋
-      enemy.css("right", "-50px");
-      enemyStart();
-    });
+    enemy
+      .stop() // 기존의 애니메이션 중지
+      .css({ right: "-70px", display: "block" }) // 초기 위치와 표시 설정
+      .animate({ right: "850px" }, speed, "linear", function () {
+        // 점수 올리자
+        score += 100;
+        updateScore(score);
+        //적이 리셋
+        enemyStart();
+      });
   }
 
   function updateScore(score) {
@@ -110,16 +131,40 @@ $(function () {
   function jump() {
     isJumping = true;
     hero
-      .animate({ bottom: "+=140px" }, 500)
-      .animate({ bottom: "-=140px" }, 800, function () {
+      .animate({ bottom: "190px" }, 500)
+      .animate({ bottom: "50px" }, 800, function () {
         isJumping = false;
       });
   }
 
-  // 펭귄이 캐릭터에서 오른쪽으로 이동
+  // 펭귄발사!!
   function attack() {
     isLaunching = true;
-    pang.animate({ left: "900px" }, 700, "linear").css("display", "block");
+    pang
+      .css("display", "block")
+      .animate({ left: "900px" }, 700, "linear")
+      .animate({ left: "100px" }, 0, function () {
+        setTimeout(function () {
+          isLaunching = false;
+        }, 2000);
+        pang.css("display", "none");
+
+        // 점수 올리자
+        if (checkAttack()) {
+          enemy.hide();
+          score += 200;
+          updateScore(score);
+        }
+      });
+  }
+
+  //펭귄이 적과 충돌헸는지
+  function checkAttack() {
+    const rect1 = pang[0].getBoundingClientRect();
+    const rect2 = enemy[0].getBoundingClientRect();
+    const result = rect1.right < rect2.left;
+    console.log(result);
+    return result;
   }
 
   // 키보드 이벤트 정의

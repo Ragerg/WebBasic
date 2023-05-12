@@ -43,6 +43,7 @@ body {
   bottom: 50px;
   filter: brightness(120%);
   border: 1px solid white;
+  display: block;
 }
 
 #pang {
@@ -59,8 +60,7 @@ body {
   color: white;
 }
 
-#gameover_screen {
-  display: none;
+.screen {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,7 +68,11 @@ body {
   text-align: center;
 }
 
-#gameover_screen h1 {
+#gameover_screen {
+  display: none;
+}
+
+h1 {
   color: white;
   text-shadow: -1px -5px 0 #7ac73390, 5px -5px 0 #c7339b90, -1px 5px 0 #c4d01d1b,
     1px 3px 0 rgba(0, 0, 255, 0.685);
@@ -77,14 +81,14 @@ body {
   margin-bottom: 10px;
 }
 
-#gameover_screen h3 {
+h3 {
   color: white;
   text-shadow: -1px -2px 0 #7ac73390, 2px -3px 0 #c7339b90, -1px 2px 0 #c4d01d1b,
     1px 3px 0 rgba(0, 0, 255, 0.685);
   margin-bottom: 30px;
 }
 
-#gameover_screen button {
+button {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -98,18 +102,16 @@ body {
   cursor: pointer;
 }
 
-#gameover_screen button:hover {
+button:hover {
   background-color: rgba(0, 0, 100, 0.349);
   box-shadow: -1px -3px 0 #7ac73390, 3px -2px 0 #c7339b90, -1px 4px 0 #c4d01d1b,
     1px 1px 0 rgba(0, 0, 255, 0.685);
-  }
-  
-  .square {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    z-index: 1;
-  }
-  
-  
+}
+
+.square {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  z-index: 1;
+}

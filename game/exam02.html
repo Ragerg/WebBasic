@@ -25,12 +25,20 @@
 
       <div id="score">Score : 0</div>
 
-      <div id="gameover_screen">
+      <div class="screen" id="gameover_screen">
         <h1>GAME OVER</h1>
         <h3 id="finalScore">SCORE : 0</h3>
         <button id="restart_button" onclick="window.location.reload()">
           다시 시작
         </button>
+      </div>
+
+      <div class="screen" id="gamestart_screen">
+        <h1>GAME START</h1>
+        <button id="easystart_button">EASY</button>
+        <button id="hardstart_button">HARD</button>
+      </div>
+      <div class="squares">
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
