@@ -10,85 +10,50 @@
       integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      $(function () {
-        const pompom = $("#pompom");
-        const bee = $("#bee");
-
-        //점프 중인지?
-        let isJumping = false;
-
-        gameStart();
-
-        function gameStart() {
-          setKeyboardEvent();
-          beeStart();
-        }
-
-        function beeStart() {
-          //적이 오른쪽에서 왼쪽으로 이동
-          bee
-            .animate({ right: "630px" }, 1500, "linear")
-            .animate({ right: "-50px" }, 0);
-            beeStart();
-        }
-
-        function jump() {
-          isJumping = true;
-          pompom
-            .animate({ bottom: "+=100px" })
-            .animate({ bottom: "-=100px" }, function () {
-              isJumping = false;
-            });
-        }
-
-        //키보드 이벤트 정의
-        function setKeyboardEvent() {
-          $("html").keydown(function (e) {
-            switch (e.key) {
-              case " ":
-                if (!isJumping) {
-                  jump();
-                }
-                break;
-            }
-            console.log(e.key);
-          });
-        }
-      });
-    </script>
-
-    <style>
-      #container {
-        position: relative;
-        width: 600px;
-        height: 251px;
-        border: 1px black solid;
-      }
-
-      #pompom {
-        position: absolute;
-        left: 20px;
-        bottom: -1px;
-        width: 100px;
-        height: 100px;
-        border: 1px black solid;
-        transform: scaleX(-1);
-      }
-
-      #bee {
-        position: absolute;
-        right: 0px;
-        bottom: 30px;
-        width: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="exam02.css" />
+    <script src="exam02.js"></script>
   </head>
+
   <body>
     <div id="container">
-      <img id="pompom" src="images/pompom.png" alt="" />
-      <img id="bee" src="images/bee.png" alt="" />
+      <div class="sliding-background"></div>
+      <img id="hero" src="images/hero.gif" alt="hero" />
+
+      <img id="enemy" src="images/enemy.gif" alt="enemy" />
+
+      <img id="pang" src="images/pang.gif" alt="pang" />
+
+      <div id="score">Score : 0</div>
+
+      <div id="gameover_screen">
+        <h1>GAME OVER</h1>
+        <h3 id="finalScore">SCORE : 0</h3>
+        <button id="restart_button" onclick="window.location.reload()">
+          다시 시작
+        </button>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
     </div>
   </body>
 </html>
