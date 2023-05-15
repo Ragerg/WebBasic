@@ -5,6 +5,7 @@ https://ragerg.github.io/WebBasic/game/game.html
 ## 자바스크립트로 게임만들기
 - spacebar : 점프
 - → : 공격
+- 적과 만나면 게임오버
 - 난이도에 따라 적의 속도 변경
 - 난이도에 따라 재공격 가능 시간 변경
 
