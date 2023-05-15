@@ -56,7 +56,7 @@ body {
 }
 
 #score {
-  font-family: 'Chakra Petch', sans-serif;;
+  font-family: "Chakra Petch", sans-serif;
   float: right;
   color: white;
 }
@@ -65,8 +65,13 @@ body {
   display: none;
 }
 
+#explanation {
+  color: white;
+  margin-top: 10px;
+}
+
 .screen {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -96,7 +101,7 @@ h3 {
 }
 
 button {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: white;
