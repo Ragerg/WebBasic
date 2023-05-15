@@ -49,13 +49,14 @@ body {
 #pang {
   display: none;
   position: absolute;
-  left: 100px;
+  left: 150px;
   bottom: 70px;
   filter: brightness(120%);
   /* border: 1px solid white; */
 }
 
 #score {
+  font-family: 'Chakra Petch', sans-serif;;
   float: right;
   color: white;
 }
@@ -65,6 +66,7 @@ body {
 }
 
 .screen {
+  font-family: 'Chakra Petch', sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,6 +96,7 @@ h3 {
 }
 
 button {
+  font-family: 'Chakra Petch', sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: white;

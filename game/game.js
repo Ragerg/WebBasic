@@ -64,6 +64,8 @@ $(function () {
         break;
     }
 
+    setAttackInterval(difficulty); // 공격 가능 간격 설정
+
     //게임시작 시 시작화면 숨김
     $("#gamestart_screen").hide();
     $(".square").hide();
@@ -71,9 +73,7 @@ $(function () {
     $("#canAttack").css("display", "block");
 
     setKeyboardEvent();
-    setAttackInterval(difficulty); // 공격 가능 간격 설정
     enemyStart(min, max);
-
     checkGameOver();
   }
 
@@ -218,6 +218,8 @@ $(function () {
 
   // 펭귄발사!!
   function attack() {
+    console.log(attackInterval);
+
     isLaunching = true;
     playPangSound();
     $("#canAttack").css("display", "none"); // "공격 가능" 숨김
