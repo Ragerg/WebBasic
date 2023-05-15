@@ -134,9 +134,22 @@ button:hover {
 }
 
 #git {
+  z-index: 3;
   position: absolute;
   top: 95%;
   left: 97%;
   width: 30px;
   filter: invert();
+}
+
+#lee {
+  z-index: 3;
+  position: absolute;
+  font-size: small;
+  bottom: 0.8%;
+  right: 3.3%;
+  width: 100px;
+  color: white;
+  text-align: right;
+  line-height: 10px;
 }
