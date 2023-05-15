@@ -122,7 +122,7 @@ $(function () {
           $(".square").show();
           $("#gameover_screen").show();
           $("#score").css("display", "none");
-          $("#canAttack").css("display", "none");
+          $("#canAttack").css("display", "none").css("z-index", "-1");
         }
       }
     }, 1000 / 60);
