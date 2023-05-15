@@ -1,6 +1,7 @@
 # 자바스크립트로 게임만들기
+## Neon City
 
-https://ragerg.github.io/WebBasic/game/game.html
+### 게임하기 : https://ragerg.github.io/WebBasic/game/game.html
 
 ## 게임 방법
 - spacebar : 점프
