@@ -193,6 +193,11 @@ $(function () {
       .animate({ bottom: "190px" }, 500)
       .animate({ bottom: "50px" }, 700, function () {
         isJumping = false;
+        if (isJumping || isLaunching) {
+          $("#canAttack").css("display", "none"); // "공격 가능" 숨김
+        } else {
+          $("#canAttack").css("display", "block"); // "공격 가능" 표시
+        }
       });
     playJumpSound(); // 점프 효과음 재생
   }
@@ -227,7 +232,11 @@ $(function () {
     pang.animate({ left: "100px" }, 0, function () {
       setTimeout(function () {
         isLaunching = false;
-        $("#canAttack").css("display", "block"); // "공격 가능" 표시
+        if (isJumping || isLaunching) {
+          $("#canAttack").css("display", "none"); // "공격 가능" 숨김
+        } else {
+          $("#canAttack").css("display", "block"); // "공격 가능" 표시
+        }
       }, attackInterval);
       pang.css("display", "none");
     });
