@@ -109,10 +109,6 @@ $(function () {
         enemy.stop();
         pang.stop();
 
-        //키이벤트 안먹히게 조건 설정
-        isJumping = true;
-        isLaunching = true;
-
         // 게임오버 효과음 재생, 배경음악 멈추기
         playgameOverSound();
         stopBackgroundMusic();
@@ -191,7 +187,7 @@ $(function () {
     $("#canAttack").css("display", "none"); // "공격 가능" 숨김
     hero
       .animate({ bottom: "190px" }, 500)
-      .animate({ bottom: "50px" }, 700, function () {
+      .animate({ bottom: "50px" }, 500, function () {
         isJumping = false;
         if (isJumping || isLaunching) {
           $("#canAttack").css("display", "none"); // "공격 가능" 숨김
@@ -266,11 +262,15 @@ $(function () {
   // 키보드 이벤트 정의
   function setKeyboardEvent() {
     $("html").keydown(function (e) {
+       if (isGameOver) {
+         return; // 게임 오버 상태일 때는 키보드 이벤트 무시
+       }
+
       switch (e.key) {
         case " ":
-          // if (!isJumping) {
+          if (!isJumping) {
           jump();
-          // }
+          }
           break;
         case "ArrowRight":
           if (!isJumping && !isLaunching) {

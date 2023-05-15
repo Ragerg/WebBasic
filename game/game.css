@@ -132,3 +132,11 @@ button:hover {
   background-color: rgba(255, 0, 0, 0);
   z-index: 1;
 }
+
+#git {
+  position: absolute;
+  top: 95%;
+  left: 97%;
+  width: 30px;
+  filter: invert();
+}
