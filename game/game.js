@@ -122,7 +122,7 @@ $(function () {
           $(".square").show();
           $("#gameover_screen").show();
           $("#score").css("display", "none");
-          $("#canAttack").css("display", "none").css("z-index", "-1");
+          $("#canAttack").css("display", "none").hide();
         }
       }
     }, 1000 / 60);
@@ -193,7 +193,6 @@ $(function () {
       .animate({ bottom: "190px" }, 500)
       .animate({ bottom: "50px" }, 700, function () {
         isJumping = false;
-        $("#canAttack").css("display", "block"); // "공격 가능" 표시
       });
     playJumpSound(); // 점프 효과음 재생
   }
