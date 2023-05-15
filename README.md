@@ -1,8 +1,8 @@
-# WebBasic
+# 자바스크립트로 게임만들기
 
 https://ragerg.github.io/WebBasic/game/game.html
 
-## 자바스크립트로 게임만들기
+## 게임 방법
 - spacebar : 점프
 - → : 공격
 - 왼쪽 위에 펭귄이 있어야 공격 가능 상태
