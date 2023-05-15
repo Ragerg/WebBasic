@@ -59,8 +59,8 @@ $(function () {
         max = 3000;
         break;
       case "hard":
-        min = 1000;
-        max = 2000;
+        min = 900;
+        max = 1100;
         break;
     }
 
@@ -86,7 +86,7 @@ $(function () {
       rect1.bottom < rect2.top + 10 ||
       rect1.top > rect2.bottom + 10 ||
       rect1.right < rect2.left + 10 ||
-      rect1.left > rect2.right + 10
+      rect1.left > rect2.right + 30
     );
   }
 
@@ -191,7 +191,7 @@ $(function () {
     $("#canAttack").css("display", "none"); // "공격 가능" 숨김
     hero
       .animate({ bottom: "190px" }, 500)
-      .animate({ bottom: "50px" }, 700, function () {
+      .animate({ bottom: "50px" }, 500, function () {
         isJumping = false;
         if (isJumping || isLaunching) {
           $("#canAttack").css("display", "none"); // "공격 가능" 숨김
@@ -268,9 +268,9 @@ $(function () {
     $("html").keydown(function (e) {
       switch (e.key) {
         case " ":
-          if (!isJumping) {
-            jump();
-          }
+          // if (!isJumping) {
+          jump();
+          // }
           break;
         case "ArrowRight":
           if (!isJumping && !isLaunching) {
