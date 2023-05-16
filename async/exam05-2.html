@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Details</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      @font-face {
+        font-family: "PilseungGothic";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      body {
+        background-color: #212529;
+        color: #ffffff;
+        padding: 20px;
+      }
+
+      .movie-details {
+        background-color: #343a40;
+        border-radius: 1%;
+        color: #ffffff;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .movie-details h1 {
+        font-family: "PilseungGothic";
+        font-size: 60px;
+        margin-top: 0;
+      }
+
+      .movie-poster {
+        max-width: 300px;
+        margin-right: 20px;
+      }
+
+      .movie-info {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      
+      .movie-info p {
+        margin-left: 30px;
+      }
+
+       .card {
+        background-color: #343a40; /* 카드 배경색을 검은색으로 변경 */
+        color: #ffffff;
+        border: 1px solid #343a40;
+      }
+    </style>
+  </head>
+   <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div id="movie-details" class="movie-details"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // URL 쿼리 매개변수에서 영화 ID 가져오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const movieId = urlParams.get("movieId");
+
+      // 영화 ID를 사용하여 영화 정보 가져오기
+      fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR`
+      )
+        .then((response) => response.json())
+        .then((movie) => displayMovie(movie));
+
+      // 영화 정보 표시 함수
+      function displayMovie(movie) {
+        var movieDetailsContainer = document.getElementById("movie-details");
+
+        // 영화 정보를 카드 형식으로 표시
+        movieDetailsContainer.innerHTML = `
+          <div class="card">
+            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}" class="card-img-top movie-poster">
+            <div class="card-body">
+              <h1 class="card-title">${movie.title}</h1>
+              <p class="card-text">개봉일: ${movie.release_date}</p>
+              <p class="card-text">평점: ${movie.vote_average}</p>
+              <p class="card-text">장르: ${movie.genres.map((genre) => genre.name).join(", ")}</p>
+              <p class="card-text">${movie.overview}</p>
+            </div>
+          </div>
+        `;
+      }
+    </script>
+  </body>
+</html>

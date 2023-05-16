@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upcoming Movies</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:ital,wght@0,700;1,300&family=Darumadrop+One&family=Pacifico&family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #212529;
+        color: #ffffff;
+      }
+
+      .movie-card {
+        padding: 20px;
+      }
+
+      .movie-card .card {
+        background-color: #343a40;
+        color: #ffffff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        outline: 1px white solid;
+      }
+
+      .movie-card .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .movie-card .card-title {
+        height: 4em;
+        overflow: hidden;
+      }
+
+      .movie-card .card-ranking {
+        font-family: "Pacifico", cursive;
+        position: absolute;
+        top: -15px;
+        right: 10px;
+        color: #ffffff;
+        -webkit-text-stroke: 1px black;
+        font-weight: bold;
+        font-size: 50px;
+        border-radius: 30%;
+      }
+
+      @font-face {
+        font-family: "PilseungGothic";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/PilseungGothic.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      #cardTitle {
+        font-family: "PilseungGothic";
+        font-size: 5em;
+        background-color: white;
+        text-align: left;
+        text-indent: 1em;
+        height: 150px;
+        line-height: 120px;
+        color: #343a40;
+        border: 15px solid #212529;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cardTitle">RG Movies</div>
+    <div id="movies" class="container">
+      <div class="row"></div>
+    </div>
+
+    <script>
+      // API에서 영화 정보 가져오기
+      fetch(
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1"
+      )
+        .then((response) => response.json())
+        .then((data) => displayMovies(data.results));
+
+      // 영화 정보를 카드로 표시하는 함수
+      function displayMovies(movies) {
+        var moviesContainer = document.getElementById("movies");
+        var row = moviesContainer.querySelector(".row");
+
+        // 각 영화에 대해 카드를 생성하여 추가
+        movies.forEach((movie, index) => {
+          var movieCard = document.createElement("div");
+          movieCard.className = "col-lg-3 col-md-4 col-sm-6 movie-card";
+
+          // 영화 포스터 이미지 URL 조합
+          var posterUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+
+          // 카드 내용 설정
+          movieCard.innerHTML = `
+      <div class="card" onclick="displayMovieDetails(${
+        movie.id
+      })"> <!-- 여기에 onclick 이벤트 추가 -->
+        <div class="card-ranking">${index + 1}</div>
+        <img src="${posterUrl}" alt="${movie.title}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">${movie.title}</h5>
+          <p class="card-text">개봉일: ${movie.release_date}</p>
+        </div>
+      </div>
+    `;
+
+          row.appendChild(movieCard);
+        });
+      }
+
+      // 상세 영화 정보를 표시하는 함수
+      function displayMovieDetails(movieId) {
+        // Redirect to exam05-2.html with the movieId parameter
+        window.location.href = `exam05-2.html?movieId=${movieId}`;
+      }
+    </script>
+  </body>
+</html>

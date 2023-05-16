@@ -48,7 +48,7 @@
         posts.forEach((post) => {
           var card = document.createElement("div");
           card.className = "card";
-          card.innerHTML = `<h2>${post.title}</h2><p><br>${post.body}</p>`;
+          card.innerHTML = `<h1>${post.id}</h1><h2>${post.title}</h2><p><br>${post.body}</p>`;
 
           // 클릭 이벤트 리스너 추가
           card.addEventListener("click", function () {
