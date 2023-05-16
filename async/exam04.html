@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      .card {
+        display: inline-block;
+        cursor: pointer;
+        background-color: #ffe300;
+        color: #fff;
+        border: 7px double;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        margin: 20px;
+        padding: 20px;
+        width: 300px;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="posts" class="container"></div>
+
+    <script>
+      // API에서 포스트 데이터 가져오기
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((posts) => displayPosts(posts));
+
+      // 포스트 데이터를 카드로 표시하는 함수
+      function displayPosts(posts) {
+        var postsContainer = document.getElementById("posts");
+
+        // 각 포스트에 대해 카드를 생성하여 추가
+        posts.forEach((post) => {
+          var card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `<h2>${post.title}</h2><p><br>${post.body}</p>`;
+
+          // 클릭 이벤트 리스너 추가
+          card.addEventListener("click", function () {
+            window.location.href = "exam04-2.html?postId=" + post.id;
+          });
+
+          postsContainer.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>

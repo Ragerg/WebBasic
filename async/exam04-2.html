@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comments</title>
+    <style>
+      .comment {
+        background-color: #ffe300;
+        color: #fff;
+        border: 7px double;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        margin: 20px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="comments"></div>
+
+    <script>
+      // 현재 페이지의 URL에서 postId를 가져옴
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get("postId");
+
+      // API에서 해당 postId에 대한 코멘트 가져오기
+      fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
+        .then((response) => response.json())
+        .then((comments) => displayComments(comments));
+
+      // 코멘트를 표시하는 함수
+      function displayComments(comments) {
+        var commentsContainer = document.getElementById("comments");
+
+        // 각 코멘트를 생성하여 추가
+        comments.forEach((comment) => {
+          var commentElement = document.createElement("div");
+          commentElement.className = "comment";
+          commentElement.innerHTML = `<h3>${comment.name}</h3><p>${comment.body}</p>`;
+          commentsContainer.appendChild(commentElement);
+        });
+      }
+    </script>
+  </body>
+</html>
