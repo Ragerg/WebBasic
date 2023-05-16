@@ -262,20 +262,21 @@ $(function () {
   // 키보드 이벤트 정의
   function setKeyboardEvent() {
     $("html").keydown(function (e) {
-       if (isGameOver) {
-         return; // 게임 오버 상태일 때는 키보드 이벤트 무시
-       }
+      if (isGameOver) {
+        return; // 게임 오버 상태일 때는 키보드 이벤트 무시
+      }
 
       switch (e.key) {
         case " ":
           if (!isJumping) {
-          jump();
+            jump();
           }
           break;
         case "ArrowRight":
           if (!isJumping && !isLaunching) {
             attack();
           }
+          break;
       }
     });
   }
