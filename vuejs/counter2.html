@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,27 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-  <div id="app">
-    {{ message }}
+  <div id="counter">
+    <h1>{{ count }}</h1>
+    <input type="button" value="+" v-on:click="increase">
   </div>
 
   <script>
     const app = new Vue({
-      el: '#app',
+      el: '#counter',
       data: {
-        message: 'Hello World'
+        count: 0
+      },
+      methods: {
+        increase: function () {
+          this.count++;
+        }
       }
     });
   </script>
+
 </body>
+
 </html>
