@@ -6,11 +6,15 @@
 ### 이용 설명
 - 순위 순으로 영화 정렬
 - 영화포스터, 제목, 개봉일
+- 영화 검색 가능
 - 영화 카드 클릭 시 상세페이지로 이동
 - 트레일러보기 클릭 시 유튜브영상 팝업
 
 ## 홈화면
 >![image](https://github.com/Ragerg/WebBasic/assets/126847907/444c7360-0b41-4247-bd5b-ab6443f3fd5a)
+
+## 검색화면
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/d5a3bf19-9f7a-4423-a053-0205ff9dac8f)
 
 ## 상세페이지
 >![image](https://github.com/Ragerg/WebBasic/assets/126847907/86015197-752c-4e3b-b828-91cbbfe41f63)
