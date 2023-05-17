@@ -14,7 +14,7 @@
         font-weight: normal;
         font-style: normal;
       }
-      
+
       body {
         background-color: #212529;
         color: #ffffff;
@@ -36,27 +36,52 @@
       }
 
       .movie-poster {
-        max-width: 300px;
+        max-width: 500px;
         margin-right: 20px;
+        margin-bottom: 30px;
       }
 
       .movie-info {
         display: flex;
         margin-bottom: 10px;
       }
-      
+
       .movie-info p {
         margin-left: 30px;
       }
 
-       .card {
-        background-color: #343a40; /* 카드 배경색을 검은색으로 변경 */
+      .card {
+        background-color: #343a40;
         color: #ffffff;
         border: 1px solid #343a40;
       }
+
+      .trailer-button {
+        margin-top: 10px;
+      }
+
+      .movies-list {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .movie-card {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-right: 10px;
+      }
+
+      .movie-card .card-img-top {
+        max-height: 300px;
+      }
+
+      .movie-card .card-title {
+        font-size: 16px;
+      }
     </style>
   </head>
-   <body>
+  <body>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -84,16 +109,74 @@
         // 영화 정보를 카드 형식으로 표시
         movieDetailsContainer.innerHTML = `
           <div class="card">
-            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}" class="card-img-top movie-poster">
-            <div class="card-body">
-              <h1 class="card-title">${movie.title}</h1>
-              <p class="card-text">개봉일: ${movie.release_date}</p>
-              <p class="card-text">평점: ${movie.vote_average}</p>
-              <p class="card-text">장르: ${movie.genres.map((genre) => genre.name).join(", ")}</p>
-              <p class="card-text">${movie.overview}</p>
-            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img src="https://image.tmdb.org/t/p/w500/${
+                  movie.poster_path
+                }" alt="${movie.title}" class="card-img-top movie-poster">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <p class="card-text">개봉일: ${movie.release_date}</p>
+                  <p class="card-text">평점: ${movie.vote_average}</p>
+                  <p class="card-text">장르: ${movie.genres
+                    .map((genre) => genre.name)
+                    .join(", ")}</p>
+                  <button class="btn btn-primary trailer-button" onclick="openTrailerPopup('${movieId}')">트레일러 보기</button>
+                  </div>
+                  </div>
+                  </div>
+                  <h1 class="card-title">${movie.title}</h1>
+                  <p class="card-text">${movie.overview}</p>
           </div>
         `;
+      }
+
+      // 트레일러 팝업 열기 함수
+      function openTrailerPopup(movieId) {
+        fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.results.length > 0) {
+              const trailerKey = data.results[0].key;
+              const trailerUrl = `https://www.youtube-nocookie.com/embed/${trailerKey}?autoplay=1&hl=ko&controls=0&enablejsapi=1`;
+              const screenWidth = window.screen.availWidth;
+              const screenHeight = window.screen.availHeight;
+              const popupWidth = 800;
+              const popupHeight = 450;
+              const popupLeft = (screenWidth - popupWidth) / 2;
+              const popupTop = (screenHeight - popupHeight) / 2;
+              const trailerPopup = window.open(
+                trailerUrl,
+                "_blank",
+                `width=${popupWidth},height=${popupHeight},left=${popupLeft},top=${popupTop}`
+              );
+
+              // YouTube API를 사용하여 영상이 끝난 후에 자동으로 재생되도록 설정
+              const checkInterval = setInterval(() => {
+                if (trailerPopup.closed) {
+                  clearInterval(checkInterval);
+                } else if (trailerPopup.window) {
+                  trailerPopup.window.addEventListener("message", (event) => {
+                    if (event.data === "YT.PlayerState.ENDED") {
+                      trailerPopup.location = trailerUrl;
+                    }
+                  });
+                }
+              }, 1000);
+            } else {
+              alert("트레일러를 찾을 수 없습니다.");
+            }
+          })
+          .catch((error) => {
+            console.error(
+              "트레일러를 가져오는 동안 오류가 발생했습니다:",
+              error
+            );
+            alert("트레일러를 가져오는 동안 오류가 발생했습니다.");
+          });
       }
     </script>
   </body>
