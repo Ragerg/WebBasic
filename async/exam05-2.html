@@ -6,6 +6,8 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+
+
     <style>
       @font-face {
         font-family: "PilseungGothic";
@@ -79,12 +81,35 @@
       .movie-card .card-title {
         font-size: 16px;
       }
+
+      #cardTitle {
+        font-family: "PilseungGothic";
+        font-size: 5em;
+        background-color: white;
+        margin-bottom: 20px;
+        text-align: left;
+        text-indent: 1em;
+        height: 150px;
+        line-height: 150px;
+        color: #343a40;
+        border-radius: 5px;
+      }
+
+
+      a:hover {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
+    <div id="movies" class="container">
+      <a href="exam05.html"><div id="cardTitle">RG Movies</div></a>
+      <div class="row"></div>
+    </div>
+
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <div id="movie-details" class="movie-details"></div>
         </div>
       </div>
@@ -126,10 +151,10 @@
                     )}</p>
                   <button class="btn btn-primary trailer-button" onclick="openTrailerPopup('${movieId}')">트레일러 보기</button>
                   </div>
-                  </div>
-                  </div>
                   <h1 class="card-title">${movie.title}</h1>
                   <p class="card-text">${movie.overview}</p>
+                  </div>
+                  </div>
           </div>
         `;
       }
