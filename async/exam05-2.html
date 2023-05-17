@@ -185,18 +185,6 @@
                 `width=${popupWidth},height=${popupHeight},left=${popupLeft},top=${popupTop}`
               );
 
-              // YouTube API를 사용하여 영상이 끝난 후에 자동으로 재생되도록 설정
-              const checkInterval = setInterval(() => {
-                if (trailerPopup.closed) {
-                  clearInterval(checkInterval);
-                } else if (trailerPopup.window) {
-                  trailerPopup.window.addEventListener("message", (event) => {
-                    if (event.data === "YT.PlayerState.ENDED") {
-                      trailerPopup.location = trailerUrl;
-                    }
-                  });
-                }
-              }, 1000);
             } else {
               alert("트레일러를 찾을 수 없습니다.");
             }

@@ -116,12 +116,40 @@
       .movie-details-overlay:hover {
         opacity: 1;
       }
+
+      .btn {
+        background-color: #343a40;
+        color: white;
+      }
+
+      .input-group {
+        margin-top: 10px;
+        width: 30%;
+        float: right;
+      }
     </style>
   </head>
   <body>
     <div id="movies" class="container">
       <a href=""><div id="cardTitle">RG Movies</div></a>
-      <div class="row"></div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="input-group mb-6">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="영화 검색"
+              class="form-control"
+            />
+            <div class="">
+              <button class="btn" type="button" onclick="searchMovies()">
+                검색
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="searchResults" class="row"></div>
     </div>
 
     <script>
@@ -139,6 +167,7 @@
 
         // 현재 날짜 가져오기
         var currentDate = new Date();
+        
 
         // 각 영화에 대해 카드를 생성하여 추가
         movies.forEach((movie, index) => {
@@ -178,12 +207,38 @@
 
           row.appendChild(movieCard);
         });
+        
       }
 
       // 상세 영화 정보를 표시하는 함수
       function displayMovieDetails(movieId) {
         // Redirect to exam05-2.html with the movieId parameter
         window.location.href = `exam05-2.html?movieId=${movieId}`;
+      }
+
+      function searchMovies() {
+        var searchInput = document.getElementById("searchInput");
+        var searchTerm = searchInput.value.trim();
+
+        // 입력된 검색어가 비어있는 경우 아무 작업도 수행하지 않음
+        if (searchTerm === "") {
+          return;
+        }
+
+        // 현재 목록에서 검색어에 해당하는 영화 필터링
+        var moviesContainer = document.getElementById("movies");
+        var movieCards = moviesContainer.getElementsByClassName("movie-card");
+
+        Array.from(movieCards).forEach(function (card) {
+          var title = card
+            .querySelector(".card-title")
+            .textContent.toLowerCase();
+          if (title.includes(searchTerm.toLowerCase())) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
       }
     </script>
   </body>
