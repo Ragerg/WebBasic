@@ -7,7 +7,6 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
 
-
     <style>
       @font-face {
         font-family: "PilseungGothic";
@@ -95,9 +94,12 @@
         border-radius: 5px;
       }
 
-
       a:hover {
         text-decoration: none;
+      }
+
+      .text {
+        margin-top: 50px;
       }
     </style>
   </head>
@@ -142,17 +144,19 @@
               </div>
               <div class="col-md-6">
                 <div class="card-body">
-                      <p class="card-text">${movie.release_date} 개봉</p>
+                  <h1 class="card-title">${movie.title}</h1>
+                  <p class="card-text">${movie.release_date} 개봉</p>
                   <p class="card-text">${movie.genres
                     .map((genre) => genre.name)
                     .join(", ")} / ${movie.runtime} 분</p>
                     <p class="card-text">평점 : ${movie.vote_average.toFixed(
                       1
                     )}</p>
-                  <button class="btn btn-primary trailer-button" onclick="openTrailerPopup('${movieId}')">트레일러 보기</button>
+                      <button class="btn btn-primary trailer-button" onclick="openTrailerPopup('${movieId}')">트레일러 보기</button>
+                      <div class="text">
+                        <p class="card-text">${movie.overview}</p>
                   </div>
-                  <h1 class="card-title">${movie.title}</h1>
-                  <p class="card-text">${movie.overview}</p>
+                  </div>
                   </div>
                   </div>
           </div>
