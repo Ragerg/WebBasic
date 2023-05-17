@@ -1,3 +1,26 @@
+# 영화순위 사이트 만들기
+## RG Movies
+
+### 사이트 둘러보기 : https://ragerg.github.io/WebBasic/async/exam05.html
+
+### 이용 설명
+- 순위 순으로 영화 정렬
+- 영화포스터, 제목, 개봉일
+- 영화 카드 클릭 시 상세페이지로 이동
+- 트레일러보기 클릭 시 유튜브영상 팝업
+
+## 홈화면
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/444c7360-0b41-4247-bd5b-ab6443f3fd5a)
+
+## 상세페이지
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/86015197-752c-4e3b-b828-91cbbfe41f63)
+
+## 트레일러 팝업
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/fbfd96a1-9dfe-43a2-8a96-02ad3b5ca02b)
+
+
+
+
 # 자바스크립트로 게임만들기
 ## Neon City
 
