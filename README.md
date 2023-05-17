@@ -11,10 +11,10 @@
 - 트레일러보기 클릭 시 유튜브영상 팝업
 
 ## 홈화면
->![image](https://github.com/Ragerg/WebBasic/assets/126847907/444c7360-0b41-4247-bd5b-ab6443f3fd5a)
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/47f01c0a-7329-4e65-9f0b-9f7af51dceef)
 
 ## 검색화면
->![image](https://github.com/Ragerg/WebBasic/assets/126847907/d5a3bf19-9f7a-4423-a053-0205ff9dac8f)
+>![image](https://github.com/Ragerg/WebBasic/assets/126847907/2830d8e9-0fb1-4769-8a1c-eb2e5842e335)
 
 ## 상세페이지
 >![image](https://github.com/Ragerg/WebBasic/assets/126847907/86015197-752c-4e3b-b828-91cbbfe41f63)
